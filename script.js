@@ -3,19 +3,25 @@ const postButton = document.getElementById('post-button');
 const postInput = document.getElementById('post-input');
 const postsContainer = document.getElementById('posts-container');
 
-// Handle Post Creation
 postButton.addEventListener('click', () => {
-  const postContent = postInput.value.trim();
-  if (postContent) {
-    const postElement = document.createElement('div');
-    postElement.classList.add('post');
-    postElement.innerHTML = `
-      <h3>Anonymous</h3>
-      <p>${postContent}</p>
+  const content = postInput.value.trim();
+  if (content) {
+    const post = document.createElement('div');
+    post.classList.add('post');
+    post.innerHTML = `
+      <h3>User</h3>
+      <p>${content}</p>
     `;
-    postsContainer.prepend(postElement);
-    postInput.value = ''; // Clear input
+    postsContainer.prepend(post);
+    postInput.value = '';
   } else {
-    alert('Please enter some text before posting!');
+    alert('Please write something before posting!');
   }
+});
+
+// Theme Toggle
+const themeToggle = document.getElementById('theme-toggle');
+themeToggle.addEventListener('click', () => {
+  document.body.dataset.theme = 
+    document.body.dataset.theme === 'dark' ? 'light' : 'dark';
 });

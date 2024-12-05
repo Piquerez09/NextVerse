@@ -3,26 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EchoHub</title>
+  <title>VoxSphere</title>
   <link rel="stylesheet" href="src/css/styles.css">
+  <script defer src="src/js/script.js"></script>
 </head>
 <body>
   <!-- Header -->
   <header class="header">
-    <h1>EchoHub</h1>
+    <h1>VoxSphere</h1>
     <nav>
       <a href="#feed">Feed</a>
       <a href="#explore">Explore</a>
       <a href="#profile">Profile</a>
     </nav>
+    <button id="theme-toggle">🌙</button>
   </header>
 
   <!-- Main Content -->
   <main>
-    <!-- Post Input -->
+    <!-- Post Section -->
     <section id="post-section" class="post-section">
       <h2>Create a Post</h2>
-      <textarea id="post-input" placeholder="What's happening?"></textarea>
+      <textarea id="post-input" placeholder="What's on your mind?"></textarea>
       <button id="post-button">Post</button>
     </section>
 
@@ -31,13 +33,23 @@
       <h2>Feed</h2>
       <div id="posts-container"></div>
     </section>
+
+    <!-- Explore Section -->
+    <section id="explore" class="explore">
+      <h2>Explore Trending Topics</h2>
+      <div class="topics">
+        <button>#Technology</button>
+        <button>#Gaming</button>
+        <button>#Art</button>
+        <button>#Music</button>
+        <button>#Travel</button>
+      </div>
+    </section>
   </main>
 
   <!-- Footer -->
   <footer>
-    <p>© 2024 EchoHub - The Voice of the World</p>
+    <p>© 2024 VoxSphere - Connect and Inspire</p>
   </footer>
-
-  <script src="src/js/script.js"></script>
 </body>
 </html>

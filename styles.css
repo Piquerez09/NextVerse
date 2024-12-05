@@ -1,20 +1,32 @@
-/* General Styles */
+/* General */
+:root {
+  --bg-color: #f3f4f6;
+  --text-color: #333;
+  --accent-color: #0077ff;
+  --card-bg: #fff;
+}
+
+[data-theme="dark"] {
+  --bg-color: #181818;
+  --text-color: #f1f1f1;
+  --card-bg: #242424;
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #f3f4f6;
-  color: #333;
+  background: var(--bg-color);
+  color: var(--text-color);
 }
 
 /* Header */
 .header {
-  background: #0077ff;
-  color: #fff;
-  padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 1rem 2rem;
+  background: var(--accent-color);
+  color: #fff;
 }
 
 .header h1 {
@@ -28,15 +40,17 @@ body {
   font-weight: bold;
 }
 
-.header nav a:hover {
-  text-decoration: underline;
+.header button {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
 }
 
 /* Post Section */
 .post-section {
   padding: 2rem;
-  background: #fff;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  background: var(--card-bg);
   margin: 2rem auto;
   width: 80%;
   border-radius: 10px;
@@ -54,33 +68,24 @@ body {
   margin-top: 1rem;
   padding: 0.7rem 1.5rem;
   border: none;
-  background: #0077ff;
+  background: var(--accent-color);
   color: #fff;
   font-weight: bold;
   cursor: pointer;
   border-radius: 10px;
 }
 
-.post-section button:hover {
-  background: #005bbb;
-}
-
 /* Feed Section */
 .feed {
   padding: 2rem;
-  background: #fff;
+  background: var(--card-bg);
   margin: 2rem auto;
   width: 80%;
   border-radius: 10px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.feed h2 {
-  margin-bottom: 1rem;
 }
 
 .post {
-  background: #f9f9f9;
+  background: var(--card-bg);
   padding: 1rem;
   margin-bottom: 1rem;
   border-radius: 10px;
@@ -95,10 +100,33 @@ body {
   margin: 0.5rem 0 0;
 }
 
+/* Explore Section */
+.explore {
+  padding: 2rem;
+  background: var(--card-bg);
+  margin: 2rem auto;
+  width: 80%;
+  border-radius: 10px;
+}
+
+.explore .topics button {
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  background: var(--accent-color);
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.explore .topics button:hover {
+  background: #005bbb;
+}
+
 /* Footer */
 footer {
   text-align: center;
   padding: 1rem;
-  background: #0077ff;
+  background: var(--accent-color);
   color: #fff;
 }
