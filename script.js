@@ -1,27 +1,41 @@
-// Theme Toggle
-const themeToggle = document.getElementById('theme-toggle');
-themeToggle.addEventListener('click', () => {
-  document.body.dataset.theme =
-    document.body.dataset.theme === 'dark' ? 'light' : 'dark';
-});
+// Função para login simulado
+function login() {
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
 
-// Post Functionality
-const postButton = document.getElementById('post-button');
-const postInput = document.getElementById('post-input');
-const postsContainer = document.getElementById('posts-container');
-
-postButton.addEventListener('click', () => {
-  const content = postInput.value.trim();
-  if (content) {
-    const post = document.createElement('div');
-    post.classList.add('post');
-    post.innerHTML = `
-      <h3>User</h3>
-      <p>${content}</p>
-    `;
-    postsContainer.prepend(post);
-    postInput.value = '';
+  if (username && password) {
+      // Esconde a tela de login e mostra o feed
+      document.querySelector(".login-container").style.display = "none";
+      document.getElementById("feedContainer").style.display = "block";
   } else {
-    alert('Please write something before posting!');
+      alert("Por favor, preencha todos os campos.");
   }
-});
+}
+
+// Função para logout
+function logout() {
+  document.querySelector(".login-container").style.display = "block";
+  document.getElementById("feedContainer").style.display = "none";
+}
+
+// Função para criar novo post
+function createPost() {
+  const postContent = document.getElementById("newPost").value;
+  if (postContent) {
+      const postList = document.getElementById("postsList");
+      const newPost = document.createElement("div");
+      newPost.classList.add("post");
+
+      newPost.innerHTML = `
+          <div class="post-header">
+              <span class="username">Usuário</span> 
+              <span class="post-time">Agora</span>
+          </div>
+          <p>${postContent}</p>
+      `;
+      postList.appendChild(newPost);
+      document.getElementById("newPost").value = ''; // Limpa o campo
+  } else {
+      alert("O conteúdo do post não pode estar vazio.");
+  }
+}

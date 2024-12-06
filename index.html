@@ -1,55 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VoxSphere</title>
-  <link rel="stylesheet" href="src/css/styles.css">
-  <script defer src="src/js/script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SocialNet</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Header -->
-  <header class="header">
-    <h1 class="logo">🌐 VoxSphere</h1>
-    <nav class="nav">
-      <a href="#feed">Feed</a>
-      <a href="#explore">Explore</a>
-      <a href="#profile">Profile</a>
-    </nav>
-    <button id="theme-toggle">🌙</button>
-  </header>
+    <!-- Tela de Login -->
+    <div class="login-container">
+        <h1>SocialNet</h1>
+        <input type="text" id="username" placeholder="Nome de usuário" required>
+        <input type="password" id="password" placeholder="Senha" required>
+        <button onclick="login()">Entrar</button>
+    </div>
 
-  <!-- Main Content -->
-  <main>
-    <!-- Create a Post -->
-    <section id="post-section" class="post-section">
-      <h2>Create a Post</h2>
-      <textarea id="post-input" placeholder="Share your thoughts..."></textarea>
-      <button id="post-button">Post</button>
-    </section>
+    <!-- Feed de posts (aparece após login) -->
+    <div class="feed-container" id="feedContainer" style="display: none;">
+        <div class="feed-header">
+            <h2>Bem-vindo ao SocialNet!</h2>
+            <button onclick="logout()">Sair</button>
+        </div>
 
-    <!-- Feed Section -->
-    <section id="feed" class="feed">
-      <h2>Your Feed</h2>
-      <div id="posts-container"></div>
-    </section>
+        <div class="post-container">
+            <textarea id="newPost" placeholder="O que você está pensando?" rows="4"></textarea>
+            <button onclick="createPost()">Postar</button>
+        </div>
 
-    <!-- Explore Section -->
-    <section id="explore" class="explore">
-      <h2>Trending Topics</h2>
-      <div class="topics">
-        <button>#Tech</button>
-        <button>#Travel</button>
-        <button>#Fitness</button>
-        <button>#Music</button>
-        <button>#Art</button>
-      </div>
-    </section>
-  </main>
+        <div class="posts-list" id="postsList"></div>
+    </div>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2024 VoxSphere - All rights reserved.</p>
-  </footer>
+    <script src="script.js"></script>
 </body>
 </html>
