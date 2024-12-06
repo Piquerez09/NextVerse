@@ -1,41 +1,26 @@
-// Função para login simulado
-function login() {
-  const username = document.getElementById("username").value;
-  const password = document.getElementById("password").value;
+const express = require("express");
+const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+const dotenv = require("dotenv");
 
-  if (username && password) {
-      // Esconde a tela de login e mostra o feed
-      document.querySelector(".login-container").style.display = "none";
-      document.getElementById("feedContainer").style.display = "block";
-  } else {
-      alert("Por favor, preencha todos os campos.");
-  }
-}
+dotenv.config();
 
-// Função para logout
-function logout() {
-  document.querySelector(".login-container").style.display = "block";
-  document.getElementById("feedContainer").style.display = "none";
-}
+const app = express();
+app.use(cors());
+app.use(bodyParser.json());
 
-// Função para criar novo post
-function createPost() {
-  const postContent = document.getElementById("newPost").value;
-  if (postContent) {
-      const postList = document.getElementById("postsList");
-      const newPost = document.createElement("div");
-      newPost.classList.add("post");
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log("Conectado ao MongoDB"))
+    .catch((err) => console.log("Erro de conexão:", err));
 
-      newPost.innerHTML = `
-          <div class="post-header">
-              <span class="username">Usuário</span> 
-              <span class="post-time">Agora</span>
-          </div>
-          <p>${postContent}</p>
-      `;
-      postList.appendChild(newPost);
-      document.getElementById("newPost").value = ''; // Limpa o campo
-  } else {
-      alert("O conteúdo do post não pode estar vazio.");
-  }
-}
+// Importando rotas
+const authRoutes = require("./routes/authRoutes");
+const postRoutes = require("./routes/postRoutes");
+
+app.use("/api/auth", authRoutes);
+app.use("/api/posts", postRoutes);
+
+app.listen(5000, () => {
+    console.log("Servidor rodando na porta 5000");
+});
