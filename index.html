@@ -3,34 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>SocialNet</title>
+    <title>Rede Social</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Tela de Login -->
-    <div class="login-container">
-        <h1>SocialNet</h1>
-        <input type="text" id="username" placeholder="Nome de usuário" required>
-        <input type="password" id="password" placeholder="Senha" required>
-        <button onclick="login()">Entrar</button>
+    <div id="app">
+        <h1>Bem-vindo à Rede Social!</h1>
+        <div id="login-form">
+            <input type="text" id="email" placeholder="E-mail" />
+            <input type="password" id="password" placeholder="Senha" />
+            <button onclick="login()">Entrar</button>
+        </div>
+        <div id="posts-container">
+            <!-- Aqui aparecerão os posts -->
+        </div>
     </div>
 
-    <!-- Feed de posts (aparece após login) -->
-    <div class="feed-container" id="feedContainer" style="display: none;">
-        <div class="feed-header">
-            <h2>Bem-vindo ao SocialNet!</h2>
-            <button onclick="logout()">Sair</button>
-        </div>
+    <script>
+        async function login() {
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
 
-        <div class="post-container">
-            <textarea id="newPost" placeholder="O que você está pensando?" rows="4"></textarea>
-            <button onclick="createPost()">Postar</button>
-        </div>
+            const response = await fetch("http://localhost:5000/api/auth/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ email, password })
+            });
 
-        <div class="posts-list" id="postsList"></div>
-    </div>
+            const data = await response.json();
+            if (response.ok) {
+                localStorage.setItem("token", data.token);
+                alert("Login bem-sucedido!");
+                fetchPosts(); // Carregar posts depois do login
+            } else {
+                alert(data.message);
+            }
+        }
 
-    <script src="script.js"></script>
+        async function fetchPosts() {
+            const token = localStorage.getItem("token");
+            const response = await fetch("http://localhost:5000/api/posts", {
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                }
+            });
+
+            const posts = await response.json();
+            console.log(posts); // Renderizar posts
+        }
+    </script>
 </body>
 </html>
