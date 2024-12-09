@@ -1,119 +1,79 @@
-/* Reset básico */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Cores e fontes */
-:root {
-  --primary-color: #ff5f5f;
-  --secondary-color: #ffd700;
-  --background-color: #f4f4f9;
-  --text-color: #333;
-  --hover-color: #ff4040;
-}
-
-/* Corpo */
+/* Design moderno e elegante */
 body {
   font-family: 'Arial', sans-serif;
-  background-color: var(--background-color);
-  color: var(--text-color);
+  background-color: #f0f2f5;
+  color: #333;
+  margin: 0;
 }
 
-/* Header */
 header {
-  background-color: var(--primary-color);
-  color: white;
+  background-color: #ff3b3b;
   padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-/* Feed de Postagens */
-.feed {
-  padding: 20px;
-  margin-top: 20px;
+header .logo h1 {
+  color: #fff;
 }
 
-.feed h2 {
-  font-size: 1.8rem;
-  color: var(--primary-color);
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
 }
 
-.feed .feed-content {
+header nav ul li {
+  color: #fff;
+}
+
+header .cta {
+  padding: 10px 20px;
+  background-color: #fff;
+  color: #ff3b3b;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+main {
+  padding: 30px;
+}
+
+.feed-content {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
 .create-post {
+  background-color: #fff;
   padding: 20px;
-  background-color: white;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
 }
 
 #createPostText {
   width: 100%;
   padding: 10px;
-  margin-bottom: 10px;
   border-radius: 8px;
   border: 1px solid #ddd;
+  margin-bottom: 10px;
 }
 
 #createPostBtn {
-  background-color: var(--primary-color);
-  color: white;
   padding: 10px 20px;
+  background-color: #ff3b3b;
+  color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-}
-
-#createPostBtn:hover {
-  background-color: var(--hover-color);
-}
-
-/* Chat */
-.chat {
-  margin-top: 40px;
-}
-
-.chat-box {
-  max-height: 300px;
-  overflow-y: scroll;
-  background-color: white;
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #ddd;
-}
-
-#chatMessage {
-  width: 80%;
-  padding: 10px;
-  margin-top: 10px;
-  border-radius: 5px;
-}
-
-#sendMessageBtn {
-  background-color: var(--primary-color);
-  color: white;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-#sendMessageBtn:hover {
-  background-color: var(--hover-color);
 }
 
 footer {
   background-color: #333;
-  color: white;
+  color: #fff;
   text-align: center;
   padding: 20px;
 }
