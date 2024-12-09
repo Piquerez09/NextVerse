@@ -1,7 +1,7 @@
-let posts = [];  // Array para armazenar postagens
-let messages = []; // Array para armazenar mensagens
+let posts = [];
+let messages = [];
 
-// Função para criar uma nova postagem
+// Criar novo post
 function createPost(text, media) {
     const post = {
         id: posts.length + 1,
@@ -14,10 +14,10 @@ function createPost(text, media) {
     renderPosts();
 }
 
-// Função para renderizar postagens no feed
+// Renderizar posts
 function renderPosts() {
     const feedContainer = document.getElementById("feed");
-    feedContainer.innerHTML = "";  // Limpar o feed
+    feedContainer.innerHTML = "";
 
     posts.forEach(post => {
         const postElement = document.createElement("div");
@@ -39,14 +39,14 @@ function renderPosts() {
     });
 }
 
-// Função para curtir postagem
+// Curtir post
 function likePost(postId) {
     const post = posts.find(p => p.id === postId);
     post.likes += 1;
     renderPosts();
 }
 
-// Função para comentar postagem
+// Comentar post
 function commentPost(postId) {
     const comment = prompt("Digite seu comentário:");
     if (comment) {
@@ -56,7 +56,7 @@ function commentPost(postId) {
     }
 }
 
-// Função para enviar mensagem
+// Enviar mensagem
 document.getElementById("sendMessage").addEventListener("click", function() {
     const messageInput = document.getElementById("messageInput");
     const message = messageInput.value;
@@ -73,7 +73,7 @@ function renderMessages() {
     messageContainer.innerHTML = messages.map(message => `<p>${message}</p>`).join("");
 }
 
-// Função para criar postagem ao clicar no botão
+// Submeter post
 document.getElementById("postSubmit").addEventListener("click", function() {
     const postText = document.getElementById("postText").value;
     const fileInput = document.getElementById("fileInput");
@@ -90,5 +90,47 @@ document.getElementById("postSubmit").addEventListener("click", function() {
     }
 });
 
-// Inicializa o feed de postagens
-renderPosts();
+// Logout
+document.getElementById("logoutButton").addEventListener("click", function() {
+    alert("Você saiu da sua conta.");
+    // Redirecionar para página de login
+});
+// Configuração do Firebase
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_AUTH_DOMAIN",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_STORAGE_BUCKET",
+  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
+firebase.initializeApp(firebaseConfig);
+
+// Criação de usuário com email e senha
+function signUp(email, password) {
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+          const user = userCredential.user;
+          alert("Usuário criado com sucesso!");
+          window.location.href = "feed.html"; // Página do feed após o login
+      })
+      .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          alert(`Erro: ${errorMessage}`);
+      });
+}
+
+// Login de usuário
+function login(email, password) {
+  firebase.auth().signInWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+          const user = userCredential.user;
+          window.location.href = "feed.html"; // Página do feed após o login
+      })
+      .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          alert(`Erro: ${errorMessage}`);
+      });
+}
