@@ -26,27 +26,21 @@
         <button class="cta">Cadastre-se</button>
     </header>
 
-    <!-- Feed Inteligente -->
+    <!-- Feed de Postagens Estilo Instagram -->
     <main>
         <section class="feed">
             <h2>Feed Personalizado</h2>
-            <div class="feed-content">
-                <!-- Postagens dinâmicas serão carregadas aqui -->
+            <div id="feed" class="feed-content">
+                <!-- Aqui serão carregadas as postagens dinamicamente -->
             </div>
         </section>
 
-        <!-- Postagem Interativa -->
+        <!-- Postagem de Imagens e Vídeos -->
         <section class="create-post">
-            <textarea id="createPostText" placeholder="O que você está pensando?" rows="3"></textarea>
-            <button id="createPostBtn">Postar</button>
-        </section>
-
-        <!-- Chat e Colaboração em Tempo Real -->
-        <section class="chat">
-            <h2>Conversas Ao Vivo</h2>
-            <div class="chat-box" id="chatBox"></div>
-            <textarea id="chatMessage" placeholder="Digite uma mensagem..." rows="3"></textarea>
-            <button id="sendMessageBtn">Enviar</button>
+            <h2>Compartilhe sua Vibe!</h2>
+            <input type="file" id="fileInput" accept="image/*,video/*">
+            <textarea id="postCaption" placeholder="Adicione uma legenda..." rows="3"></textarea>
+            <button id="postSubmit">Postar</button>
         </section>
     </main>
 
