@@ -7,11 +7,11 @@
 
 /* Cores e fontes */
 :root {
-  --primary-color: #ff5f5f; /* Vermelho vibrante */
-  --secondary-color: #ffd700; /* Amarelo dourado */
-  --background-color: #f4f4f9; /* Fundo suave */
-  --text-color: #333333; /* Texto escuro */
-  --link-color: #00bfff; /* Azul vibrante */
+  --primary-color: #ff5f5f;
+  --secondary-color: #ffd700;
+  --background-color: #f4f4f9;
+  --text-color: #333333;
+  --link-color: #00bfff;
   --button-color: #ff5f5f;
   --hover-color: #ff4040;
 }
@@ -71,40 +71,7 @@ header .cta:hover {
   background-color: var(--hover-color);
 }
 
-/* Main */
-main {
-  padding: 50px 20px;
-}
-
-.intro {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.intro h2 {
-  font-size: 2.5rem;
-  color: var(--primary-color);
-}
-
-.intro p {
-  font-size: 1.2rem;
-  margin-top: 10px;
-}
-
-.cta {
-  background-color: var(--primary-color);
-  padding: 15px 25px;
-  border: none;
-  color: white;
-  font-size: 1.1rem;
-  cursor: pointer;
-}
-
-.cta:hover {
-  background-color: var(--hover-color);
-}
-
-/* Seção de postagens */
+/* Postagem */
 .post-section {
   background-color: white;
   padding: 20px;
@@ -142,7 +109,7 @@ main {
   background-color: var(--hover-color);
 }
 
-/* Feed de postagens */
+/* Feed */
 .feed {
   display: flex;
   flex-direction: column;
@@ -181,7 +148,77 @@ main {
   background-color: var(--hover-color);
 }
 
-/* Footer */
+/* Comentários */
+.comments-section {
+  margin-top: 20px;
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+}
+
+.comment {
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.comment input {
+  width: 80%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.comment button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-left: 10px;
+}
+
+/* Chat */
+.chat-section {
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-top: 30px;
+}
+
+.chat-box {
+  max-height: 300px;
+  overflow-y: scroll;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+#chatMessage {
+  width: 80%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+#sendChat {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-left: 10px;
+  border-radius: 5px;
+}
+
+#sendChat:hover {
+  background-color: var(--hover-color);
+}
+
 footer {
   background-color: #333333;
   color: white;
