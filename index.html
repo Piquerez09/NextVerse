@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="VibeHub: A próxima rede social para a nova geração. Conecte-se, compartilhe e crie vibrações positivas!">
-    <title>VibeHub - A próxima rede social</title>
+    <meta name="description" content="VibeHub - A rede social do futuro, onde todos podem criar, interagir e compartilhar suas vibrações de forma única!">
+    <title>VibeHub - Rede Social Multimodal</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Header com barra de navegação -->
     <header>
         <div class="logo">
             <h1>VibeHub</h1>
@@ -16,44 +17,45 @@
             <ul>
                 <li><a href="#">Início</a></li>
                 <li><a href="#">Explorar</a></li>
+                <li><a href="#">Desafios</a></li>
                 <li><a href="#">Notícias</a></li>
-                <li><a href="#">Mensagens</a></li>
+                <li><a href="#">Eventos ao Vivo</a></li>
                 <li><a href="#">Perfil</a></li>
             </ul>
         </nav>
         <button class="cta">Cadastre-se</button>
     </header>
 
+    <!-- Main Content Area -->
     <main>
-        <!-- Área do Usuário (Perfil) -->
-        <section class="user-profile">
-            <img src="user-avatar.jpg" alt="Foto do Usuário" class="avatar">
-            <div class="user-info">
-                <h2>Usuário XYZ</h2>
-                <p>Bio do usuário aqui.</p>
+        <!-- Feed Inteligente -->
+        <section class="feed">
+            <h2>Feed Personalizado</h2>
+            <div class="feed-content">
+                <!-- Postagens dinâmicas serão carregadas aqui -->
             </div>
         </section>
 
-        <!-- Seção de postagem -->
-        <section class="post-section">
-            <h3>Compartilhe sua vibe!</h3>
-            <textarea id="postText" placeholder="Escreva algo..." rows="4"></textarea>
-            <button id="postButton">Postar</button>
+        <!-- Ferramentas de Criação de Conteúdo -->
+        <section class="create-post">
+            <textarea id="createPostText" placeholder="O que você está pensando?" rows="3"></textarea>
+            <button id="createPostBtn">Criar Postagem</button>
         </section>
 
-        <!-- Feed de postagens -->
-        <section class="feed" id="feed">
-            <!-- As postagens vão aparecer aqui -->
+        <!-- Chat e Comunidade -->
+        <section class="chat">
+            <h2>Mensagens & Interações</h2>
+            <div class="chat-box" id="chatBox"></div>
+            <textarea id="chatMessage" placeholder="Envie uma mensagem..." rows="3"></textarea>
+            <button id="sendMessageBtn">Enviar</button>
         </section>
 
-        <!-- Seção de Chat -->
-        <section class="chat-section">
-            <h3>Converse com seus amigos</h3>
-            <div id="chatBox" class="chat-box">
-                <!-- Mensagens vão aparecer aqui -->
+        <!-- Desafios e Tarefas -->
+        <section class="challenges">
+            <h2>Desafios Diários</h2>
+            <div class="challenges-content">
+                <!-- Desafios vão aparecer aqui -->
             </div>
-            <textarea id="chatMessage" placeholder="Escreva uma mensagem..." rows="3"></textarea>
-            <button id="sendChat">Enviar</button>
         </section>
     </main>
 
@@ -64,3 +66,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+

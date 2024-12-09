@@ -10,9 +10,7 @@
   --primary-color: #ff5f5f;
   --secondary-color: #ffd700;
   --background-color: #f4f4f9;
-  --text-color: #333333;
-  --link-color: #00bfff;
-  --button-color: #ff5f5f;
+  --text-color: #333;
   --hover-color: #ff4040;
 }
 
@@ -21,8 +19,6 @@ body {
   font-family: 'Arial', sans-serif;
   background-color: var(--background-color);
   color: var(--text-color);
-  padding: 0;
-  margin: 0;
 }
 
 /* Header */
@@ -33,191 +29,90 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
 }
 
-header .logo h1 {
-  font-size: 2rem;
-  font-weight: bold;
-}
-
-header nav ul {
-  list-style: none;
-  display: flex;
-}
-
-header nav ul li {
-  margin: 0 15px;
-}
-
-header nav ul li a {
-  text-decoration: none;
-  color: white;
-  font-size: 1rem;
-}
-
-header .cta {
-  background-color: var(--secondary-color);
-  padding: 10px 20px;
-  border: none;
-  color: white;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
-header .cta:hover {
-  background-color: var(--hover-color);
-}
-
-/* Área do Usuário */
-.user-profile {
-  display: flex;
-  align-items: center;
-  padding: 20px;
-  background-color: white;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  margin-bottom: 20px;
-}
-
-.user-profile .avatar {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  margin-right: 20px;
-}
-
-.user-profile .user-info h2 {
-  font-size: 1.8rem;
-  color: var(--primary-color);
-}
-
-.user-profile .user-info p {
-  font-size: 1rem;
-  color: #777;
-}
-
-/* Postagem */
-.post-section {
-  background-color: white;
-  padding: 20px;
-  margin-bottom: 30px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-}
-
-.post-section h3 {
-  font-size: 1.8rem;
-  color: var(--primary-color);
-}
-
-#postText {
-  width: 100%;
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  margin-top: 10px;
-  font-size: 1rem;
-}
-
-#postButton {
-  background-color: var(--primary-color);
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  margin-top: 10px;
-  cursor: pointer;
-  font-size: 1rem;
-  border-radius: 5px;
-}
-
-#postButton:hover {
-  background-color: var(--hover-color);
-}
-
-/* Feed */
+/* Feed de Postagens */
 .feed {
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.feed h2 {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+}
+
+.feed .feed-content {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.post {
-  background-color: white;
+.create-post {
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.post h3 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-}
-
-.post p {
-  font-size: 1.1rem;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
 }
 
-.post button {
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  padding: 8px 15px;
-  cursor: pointer;
-  font-size: 1rem;
-  margin-right: 10px;
-  border-radius: 5px;
+#createPostText {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
 }
 
-.post button:hover {
+#createPostBtn {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#createPostBtn:hover {
   background-color: var(--hover-color);
 }
 
 /* Chat */
-.chat-section {
-  background-color: white;
-  padding: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  margin-top: 30px;
+.chat {
+  margin-top: 40px;
 }
 
 .chat-box {
   max-height: 300px;
   overflow-y: scroll;
-  border: 1px solid #ddd;
-  margin-bottom: 10px;
+  background-color: white;
   padding: 10px;
-  border-radius: 8px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
 }
 
 #chatMessage {
   width: 80%;
-  padding: 8px;
+  padding: 10px;
+  margin-top: 10px;
   border-radius: 5px;
-  border: 1px solid #ddd;
 }
 
-#sendChat {
+#sendMessageBtn {
   background-color: var(--primary-color);
   color: white;
+  padding: 10px;
   border: none;
-  padding: 8px 15px;
-  cursor: pointer;
-  font-size: 1rem;
-  margin-left: 10px;
   border-radius: 5px;
+  cursor: pointer;
 }
 
-#sendChat:hover {
+#sendMessageBtn:hover {
   background-color: var(--hover-color);
 }
 
 footer {
-  background-color: #333333;
+  background-color: #333;
   color: white;
   text-align: center;
   padding: 20px;
