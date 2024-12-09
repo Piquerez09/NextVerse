@@ -3,56 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rede Social</title>
+    <meta name="description" content="VibeHub: A próxima rede social para a nova geração. Conecte-se, compartilhe e crie vibrações positivas!">
+    <title>VibeHub - A próxima rede social</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="app">
-        <h1>Bem-vindo à Rede Social!</h1>
-        <div id="login-form">
-            <input type="text" id="email" placeholder="E-mail" />
-            <input type="password" id="password" placeholder="Senha" />
-            <button onclick="login()">Entrar</button>
+    <header>
+        <div class="logo">
+            <h1>VibeHub</h1>
         </div>
-        <div id="posts-container">
-            <!-- Aqui aparecerão os posts -->
-        </div>
-    </div>
+        <nav>
+            <ul>
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Explorar</a></li>
+                <li><a href="#">Notícias</a></li>
+                <li><a href="#">Mensagens</a></li>
+                <li><a href="#">Perfil</a></li>
+            </ul>
+        </nav>
+        <button class="cta">Cadastre-se</button>
+    </header>
 
-    <script>
-        async function login() {
-            const email = document.getElementById("email").value;
-            const password = document.getElementById("password").value;
+    <main>
+        <section class="intro">
+            <h2>Bem-vindo ao VibeHub</h2>
+            <p>A próxima geração de rede social está aqui. Conecte-se com amigos, compartilhe momentos e explore conteúdos que fazem sentido para você!</p>
+            <button class="cta">Entre na Vibe</button>
+        </section>
 
-            const response = await fetch("http://localhost:5000/api/auth/login", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({ email, password })
-            });
+        <section class="feed">
+            <div class="post">
+                <h3>Post de usuário</h3>
+                <p>Esta é a vibe do momento! #VibeHub #Conexões #Futuro</p>
+                <button>Curtir</button>
+                <button>Comentar</button>
+            </div>
+            <div class="post">
+                <h3>Outro post incrível</h3>
+                <p>Mais conteúdo positivo para sua timeline! Vamos espalhar boas vibrações. #CompartilheSuaVibe</p>
+                <button>Curtir</button>
+                <button>Comentar</button>
+            </div>
+        </section>
+    </main>
 
-            const data = await response.json();
-            if (response.ok) {
-                localStorage.setItem("token", data.token);
-                alert("Login bem-sucedido!");
-                fetchPosts(); // Carregar posts depois do login
-            } else {
-                alert(data.message);
-            }
-        }
+    <footer>
+        <p>&copy; 2024 VibeHub. Todos os direitos reservados.</p>
+    </footer>
 
-        async function fetchPosts() {
-            const token = localStorage.getItem("token");
-            const response = await fetch("http://localhost:5000/api/posts", {
-                headers: {
-                    "Authorization": `Bearer ${token}`
-                }
-            });
-
-            const posts = await response.json();
-            console.log(posts); // Renderizar posts
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
