@@ -1,9 +1,9 @@
-/* Design moderno e com inspiração no Instagram */
+/* Design clean e focado em interatividade */
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #f9f9f9;
-  color: #333;
   margin: 0;
+  background-color: #f4f4f4;
+  color: #333;
 }
 
 header {
@@ -15,26 +15,26 @@ header {
 }
 
 header .logo h1 {
-  color: #fff;
+  color: white;
+  font-size: 2em;
 }
 
-header nav ul {
+nav ul {
   list-style: none;
   display: flex;
   gap: 20px;
 }
 
-header nav ul li {
-  color: #fff;
+nav ul li {
+  display: inline-block;
 }
 
-header .cta {
+nav ul li a, .cta {
+  color: white;
+  text-decoration: none;
   padding: 10px 20px;
-  background-color: #fff;
-  color: #ff3b3b;
-  border: none;
+  background-color: #333;
   border-radius: 5px;
-  cursor: pointer;
 }
 
 main {
@@ -47,91 +47,25 @@ main {
   gap: 30px;
 }
 
-.feed-content {
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-}
-
-.post-header {
-  display: flex;
-  align-items: center;
-  padding: 10px;
-}
-
-.user-info {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-}
-
-.post-image {
-  width: 100%;
-  border-radius: 10px;
-}
-
-.post-footer {
-  padding: 15px;
-}
-
-.reactions button {
-  border: none;
-  background: none;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-.likes-count {
-  font-weight: bold;
-}
-
-.comments {
-  display: flex;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.comment-input {
-  width: 80%;
-  padding: 8px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
-
-.comment-submit {
-  padding: 8px 15px;
-  background-color: #ff3b3b;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
 .create-post {
-  background-color: #fff;
+  background-color: white;
   padding: 20px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-#createPostText {
+textarea, input {
   width: 100%;
   padding: 10px;
-  border-radius: 8px;
+  border-radius: 5px;
   border: 1px solid #ddd;
   margin-bottom: 10px;
 }
 
-#createPostBtn {
-  padding: 10px 20px;
+button {
   background-color: #ff3b3b;
-  color: #fff;
+  color: white;
+  padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -139,7 +73,17 @@ main {
 
 footer {
   background-color: #333;
-  color: #fff;
+  color: white;
   text-align: center;
-  padding: 20px;
+  padding: 10px 0;
 }
+
+/* Mensagens de chat */
+.messages {
+  margin-top: 20px;
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+

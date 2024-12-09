@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="VibeSphere - A Rede Social do Futuro! Conecte-se, compartilhe e viva experiências imersivas no mundo digital!">
+    <meta name="description" content="VibeSphere - A Rede Social do Futuro! Conecte-se, compartilhe e viva experiências imersivas.">
     <title>VibeSphere - A Rede Social do Futuro</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Header -->
+    <!-- Header com navegação -->
     <header>
         <div class="logo">
             <h1>VibeSphere</h1>
@@ -17,32 +17,37 @@
             <ul>
                 <li><a href="#">Início</a></li>
                 <li><a href="#">Explorar</a></li>
-                <li><a href="#">Desafios</a></li>
                 <li><a href="#">Eventos Ao Vivo</a></li>
-                <li><a href="#">Loja</a></li>
+                <li><a href="#">Mensagens</a></li>
                 <li><a href="#">Perfil</a></li>
+                <li><button class="cta">Cadastre-se</button></li>
             </ul>
         </nav>
-        <button class="cta">Cadastre-se</button>
     </header>
 
-    <!-- Feed de Postagens Estilo Instagram -->
+    <!-- Feed de postagens -->
     <main>
         <section class="feed">
             <h2>Feed Personalizado</h2>
-            <div id="feed" class="feed-content">
-                <!-- Aqui serão carregadas as postagens dinamicamente -->
-            </div>
+            <div id="feed"></div>
         </section>
 
-        <!-- Postagem de Imagens e Vídeos -->
+        <!-- Caixa para criar nova postagem -->
         <section class="create-post">
             <h2>Compartilhe sua Vibe!</h2>
+            <textarea id="postText" placeholder="O que está acontecendo?" rows="4"></textarea>
             <input type="file" id="fileInput" accept="image/*,video/*">
-            <textarea id="postCaption" placeholder="Adicione uma legenda..." rows="3"></textarea>
             <button id="postSubmit">Postar</button>
         </section>
     </main>
+
+    <!-- Área de mensagens -->
+    <section class="messages">
+        <h2>Mensagens</h2>
+        <div id="messageContainer"></div>
+        <textarea id="messageInput" placeholder="Envie uma mensagem..." rows="3"></textarea>
+        <button id="sendMessage">Enviar</button>
+    </section>
 
     <!-- Footer -->
     <footer>

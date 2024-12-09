@@ -1,12 +1,12 @@
-// Array para armazenar postagens
-let posts = [];
+let posts = [];  // Array para armazenar postagens
+let messages = []; // Array para armazenar mensagens
 
 // Função para criar uma nova postagem
-function createPost(imageUrl, caption) {
+function createPost(text, media) {
     const post = {
         id: posts.length + 1,
-        imageUrl: imageUrl,
-        caption: caption,
+        text: text,
+        media: media,
         likes: 0,
         comments: []
     };
@@ -14,35 +14,24 @@ function createPost(imageUrl, caption) {
     renderPosts();
 }
 
-// Função para renderizar as postagens no feed
+// Função para renderizar postagens no feed
 function renderPosts() {
     const feedContainer = document.getElementById("feed");
-    feedContainer.innerHTML = ""; // Limpa o feed antes de renderizar novamente
+    feedContainer.innerHTML = "";  // Limpar o feed
 
     posts.forEach(post => {
         const postElement = document.createElement("div");
         postElement.classList.add("post");
         postElement.innerHTML = `
-            <div class="post-header">
-                <div class="user-info">
-                    <img src="avatar.png" alt="User Avatar" class="avatar">
-                    <h3>UserName</h3>
-                </div>
-            </div>
-            <img src="${post.imageUrl}" alt="Post Image" class="post-image">
-            <div class="post-footer">
-                <div class="reactions">
-                    <button class="like-btn" onclick="toggleLike(${post.id})">❤️</button>
-                    <button class="comment-btn" onclick="toggleComments(${post.id})">💬</button>
-                </div>
+            <div class="post-content">
+                <p>${post.text}</p>
+                ${post.media ? `<img src="${post.media}" alt="Post Media">` : ""}
                 <div class="post-actions">
-                    <h4 class="likes-count">${post.likes} curtidas</h4>
-                    <p class="caption">${post.caption}</p>
-                    <div class="comments" id="comments-${post.id}">
-                        ${post.comments.map(comment => `<p>${comment}</p>`).join("")}
-                    </div>
-                    <input type="text" class="comment-input" id="comment-input-${post.id}" placeholder="Comente...">
-                    <button class="comment-submit" onclick="addComment(${post.id})">Comentar</button>
+                    <button onclick="likePost(${post.id})">Curtir ❤️</button>
+                    <button onclick="commentPost(${post.id})">Comentar 💬</button>
+                </div>
+                <div class="comments">
+                    ${post.comments.map(comment => `<p>${comment}</p>`).join("")}
                 </div>
             </div>
         `;
@@ -50,41 +39,56 @@ function renderPosts() {
     });
 }
 
-// Função para curtir a postagem
-function toggleLike(postId) {
-    const post = posts.find(post => post.id === postId);
-    post.likes = post.likes === 0 ? 1 : 0; // Alterna entre curtidas e não curtidas
+// Função para curtir postagem
+function likePost(postId) {
+    const post = posts.find(p => p.id === postId);
+    post.likes += 1;
     renderPosts();
 }
 
-// Função para adicionar um comentário
-function addComment(postId) {
-    const commentInput = document.getElementById(`comment-input-${postId}`);
-    const commentText = commentInput.value;
-    if (commentText) {
-        const post = posts.find(post => post.id === postId);
-        post.comments.push(commentText);
-        commentInput.value = ""; // Limpa o campo de comentário
+// Função para comentar postagem
+function commentPost(postId) {
+    const comment = prompt("Digite seu comentário:");
+    if (comment) {
+        const post = posts.find(p => p.id === postId);
+        post.comments.push(comment);
         renderPosts();
     }
 }
 
-// Função para enviar uma nova postagem
+// Função para enviar mensagem
+document.getElementById("sendMessage").addEventListener("click", function() {
+    const messageInput = document.getElementById("messageInput");
+    const message = messageInput.value;
+    if (message) {
+        messages.push(message);
+        messageInput.value = "";
+        renderMessages();
+    }
+});
+
+// Renderizar mensagens
+function renderMessages() {
+    const messageContainer = document.getElementById("messageContainer");
+    messageContainer.innerHTML = messages.map(message => `<p>${message}</p>`).join("");
+}
+
+// Função para criar postagem ao clicar no botão
 document.getElementById("postSubmit").addEventListener("click", function() {
+    const postText = document.getElementById("postText").value;
     const fileInput = document.getElementById("fileInput");
-    const caption = document.getElementById("postCaption").value;
     const file = fileInput.files[0];
 
     if (file) {
         const reader = new FileReader();
         reader.onload = function(event) {
-            createPost(event.target.result, caption);
+            createPost(postText, event.target.result);
         };
         reader.readAsDataURL(file);
     } else {
-        alert("Por favor, selecione uma imagem ou vídeo.");
+        createPost(postText, null);
     }
 });
 
-// Inicialização
+// Inicializa o feed de postagens
 renderPosts();
